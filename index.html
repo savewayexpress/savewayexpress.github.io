@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+<title>Saveway Press - จัดการข้อมูลการส่งพัสดุ</title>
+<link href="img/icon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+
+<div id="wrapper">
+
+<div class="navbar navbar-default navbar-static-top navbar-fixed-top navbar-purity">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span><img src="img/logonewexpress.png" height="50" alt=""/></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            
+  <li><a href="javascript:void(0)" onClick="from_load('ajax-pages/sumsend.php')">คำนวณราคาค่าส่ง</a></li>
+  <li><a href="javascript:void(0)" onClick="from_load('ajax-pages/sumsend_New.php')">คำนวณราคาค่าส่ง (ระบบใหม่)</a></li>
+  <li><a href="javascript:void(0)" onClick="from_load('ajax-pages/import.php')"><div class="link">นำพัสดุเข้าระบบ</div></a></li>
+  <li><a href="javascript:void(0)" onClick="from_load('ajax-pages/home.php')"><div class="link">จัดการข้อมูลพัสดุ</div></a></li>
+  <li class="divider"></li>
+  <li><a href="javascript:void(0)" onClick="alert('ฟังก์ชันออกจากระบบไม่ทำงานในโหมด HTML. ต้องใช้ PHP Server')"><div class="link">ออกจากระบบ</div></a></li>
+  </ul>
+        </div>
+      </div>
+    </div>
+
+</br>
+
+<div class="container">
+<div class="row">
+
+</div>
+</div>
+
+<div class="col-xs-12">
+<div class="body-main box">
+<div class="preloader text-center">
+กำลังโหลด กรุณารอสักครู่.......
+<img src="img/devoops_getdata.gif" width="128" height="15" alt="preloader"/>
+</div>
+<div id="ajax-content"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+
+function load_page(url)
+{
+    from_load(''+url+'');
+    $('html, body').animate({
+scrollTop: $(".body-main").stop().offset().top
+}, 900);
+}
+
+// ฟังก์ชัน confirm_logout ถูกแทนที่ด้วย alert ชั่วคราว
+function confirm_logout()
+{
+    alert('ฟังก์ชันออกจากระบบไม่ทำงานในโหมด HTML. ต้องใช้ PHP Server');
+}
+
+// โหลดหน้าคำนวณราคาค่าส่งเป็นหน้าแรกเมื่อเปิดเว็บ
+$(document).ready(function() {
+    from_load('ajax-pages/sumsend.php');
+});
+
+</script>
+</div>
+</body>
+</html>
